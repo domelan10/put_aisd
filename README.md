@@ -1,2 +1,2 @@
 # Algorytmy-i-struktury-danych
-Jebane algorytmy
+Algorytmy są kochane
