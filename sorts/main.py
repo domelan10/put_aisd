@@ -9,14 +9,15 @@ from py_tests.test_random import test_random
 from py_tests.test_increase import test_increase
 from py_tests.test_decrease import test_decrease
 from py_tests.test_hill import test_hill
+from py_tests.test_stable import test_stable
 
 
 def main():
-    print("Sort types: insertion, selection, merge, quick")
-    print("Test types: random, increase, decrease, hill\n")
+    print("Sort types: insertion, selection, merge, quick, heap, bubble")
+    print("Test types: random, increase, decrease, hill, stable\n")
     sort = input("Select sort to test: ")
     test = input("Select test type: ")
-    test_size = input("Select number of elements to test: ")
+    test_size = int(input("Select number of elements to test: "))
     
     match(test):
         case "random":
@@ -27,6 +28,8 @@ def main():
             data = test_decrease(test_size)
         case "hill":
             data = test_hill(test_size)
+        case "stable":
+            data = test_stable(test_size)
     
     print("Unsorted array: ", data)
     
