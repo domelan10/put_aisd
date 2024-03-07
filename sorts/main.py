@@ -21,16 +21,21 @@ def main():
     test = input("Select test type: ")
     test_size = int(input("Select number of elements to test: "))
     
+    if test_size <= 1:
+            print("Number of elements to test must be greater than 1.")
+            main()
+            return 0
+    
     match(test):
-        case "random" | 1:
+        case "random" | "1":
             data = test_random(test_size)
-        case "increase" | 2:
+        case "increase" | "2":
             data = test_increase(test_size)
-        case "decrease" | 3:
+        case "decrease" | "3":
             data = test_decrease(test_size)
-        case "hill" | 4:
+        case "hill" | "4":
             data = test_hill(test_size)
-        case "stable" | 5:
+        case "stable" | "5":
             data = test_stable(test_size)
         case default:
             print("Unknown test type.")
@@ -40,21 +45,21 @@ def main():
     print("Unsorted array: ", data)
     
     match(sort):
-        case "insertion" | 1:
+        case "insertion" | "1":
             data = insertion_sort(data)
-        case "selection" | 2:
+        case "selection" | "2":
             data = selection_sort(data)
-        case "merge" | 3:
+        case "merge" | "3":
             data = merge_sort(data)
-        case "quick" | 4:
+        case "quick" | "4":
             data = quick_sort(data)
-        case "heap" | 5:
+        case "heap" | "5":
             data = heap_sort(data)
-        case "bubble" | 6:
+        case "bubble" | "6":
             data = bubble_sort(data)
-        case "shell" | 7:
+        case "shell" | "7":
             data = shell_sort(data)
-        case "counting" | 8:
+        case "counting" | "8":
             data = counting_sort(data)
         case default:
             print("Unknown sort type.")
