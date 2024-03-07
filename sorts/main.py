@@ -1,7 +1,9 @@
 from insertion.insertion import insertion_sort 
 from selection.selection import selection_sort
-# from merge.merge import merge_sort
-# from quick.quick import quick_sort
+from merge.merge import merge_sort
+from quick.quick import quick_sort
+from heap.heap import heap_sort
+from bubble.bubble import bubble_sort
 
 from py_tests.test_random import test_random
 from py_tests.test_increase import test_increase
@@ -33,10 +35,14 @@ def main():
             data = insertion_sort(data)
         case "selection":
             data = selection_sort(data)
-        # case "merge":
-        #     data = merge_sort(data)
-        # case "quick":
-        #     data = quick_sort(data)
+        case "merge":
+            data = merge_sort(data)
+        case "quick":
+            data = quick_sort(data)
+        case "heap":
+            data = heap_sort(data)
+        case "bubble":
+            data = bubble_sort(data)
     
     print("Sorted array: ", data)
 
