@@ -1,24 +1,24 @@
 import random
 
 
-def insertion_sort(sList: list) -> list:
-    n = len(sList)
+def insertion_sort(to_sort: list) -> list:
+    n = len(to_sort)
 
     if n <= 1:
-        return sList
+        return to_sort
     
     for i in range(1, n):
-        k = sList[i]
+        k = to_sort[i]
 
         j = i-1
 
-        while j >= 0 and k < sList[j]:
-            sList[j+1] = sList[j]
+        while j >= 0 and k < to_sort[j]:
+            to_sort[j+1] = to_sort[j]
 
             j -= 1
-        sList[j+1] = k
+        to_sort[j+1] = k
 
-    return sList
+    return to_sort
 
 def main():
     np = sorted([random.randint(0, 100)*2 + 1 for _ in range(0, 10)])
