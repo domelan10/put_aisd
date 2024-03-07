@@ -52,7 +52,7 @@ def main():
         case "merge" | "3":
             data = merge_sort(data)
         case "quick" | "4":
-            data = quick_sort(data)
+            quick_sort(data, 0, len(data) - 1)
         case "heap" | "5":
             data = heap_sort(data)
         case "bubble" | "6":
