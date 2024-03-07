@@ -18,13 +18,23 @@ def main():
     
     match(test):
         case "random":
-            test_random(sort)
+            data = test_random(test_size)
         case "increase":
-            test_increase(sort)
+            data = test_increase(test_size)
         case "decrease":
-            test_decrease(sort)
+            data = test_decrease(test_size)
         case "hill":
-            test_hill(sort)
+            data = test_hill(test_size)
+    
+    match(sort):
+        case "insertion":
+            insertion_sort(data)
+        case "selection":
+            selection_sort(data)
+        # case "merge":
+        #     merge_sort(data)
+        # case "quick":
+        #     quick_sort(data)
 
 
 if __name__ == '__main__':
