@@ -1,22 +1,24 @@
 import random
 
 
-def insertion_sort(unsorted_list: list) -> list:
-    sorted_list = []
-    sorted_list.append(unsorted_list[0])
-    unsorted_list.pop(0)
+def insertion_sort(sList: list) -> list:
+    n = len(sList)
 
-    for e in unsorted_list:
+    if n <= 1:
+        return sList
+    
+    for i in range(1, n):
+        k = sList[i]
 
-        i = len(sorted_list) - 1
+        j = i-1
 
-        while i >= 0 and sorted_list[i] >= e:
-            i -= 1
-        sorted_list.insert(i+1, e)
-        print(sorted_list)
+        while j >= 0 and k < sList[j]:
+            sList[j+1] = sList[j]
 
-    return sorted_list
+            j -= 1
+        sList[j+1] = k
 
+    return sList
 
 def main():
     np = sorted([random.randint(0, 100)*2 + 1 for _ in range(0, 10)])
