@@ -26,15 +26,19 @@ def main():
         case "hill":
             data = test_hill(test_size)
     
+    print("Unsorted array: ", data)
+    
     match(sort):
         case "insertion":
-            insertion_sort(data)
+            data = insertion_sort(data)
         case "selection":
-            selection_sort(data)
+            data = selection_sort(data)
         # case "merge":
-        #     merge_sort(data)
+        #     data = merge_sort(data)
         # case "quick":
-        #     quick_sort(data)
+        #     data = quick_sort(data)
+    
+    print("Sorted array: ", data)
 
 
 if __name__ == '__main__':
