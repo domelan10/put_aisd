@@ -13,7 +13,6 @@ from py_tests.test_decrease import test_decrease
 from py_tests.test_hill import test_hill
 from py_tests.test_stable import test_stable
 
-import matplotlib.pyplot as plt
 import datetime
 
 def main():
