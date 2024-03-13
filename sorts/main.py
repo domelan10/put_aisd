@@ -16,7 +16,7 @@ from py_tests.test_stable import test_stable
 import datetime
 
 def main():
-    print("Sort types: insertion, selection, merge, quick, heap, bubble, shell, counting")
+    print("Sort types: insertion, selection, merge, quick_left, quick_random, heap, bubble, shell, counting") # remove: merge, bubble, counting
     print("Test types: random, increase, decrease, hill, stable\n")
     sort = input("Select sort to test: ")
     test = input("Select test type: ")
@@ -52,15 +52,17 @@ def main():
             data = selection_sort(data)
         case "merge" | "3":
             data = merge_sort(data)
-        case "quick" | "4":
-            quick_sort(data, 0, len(data) - 1)
-        case "heap" | "5":
+        case "quick_left" | "4":
+            quick_sort(data, 0)
+        case "quick_random" | "5":
+            quick_sort(data, 1)
+        case "heap" | "6":
             data = heap_sort(data)
-        case "bubble" | "6":
+        case "bubble" | "7":
             data = bubble_sort(data)
-        case "shell" | "7":
+        case "shell" | "8":
             data = shell_sort(data)
-        case "counting" | "8":
+        case "counting" | "9":
             data = counting_sort(data)
         case default:
             print("Unknown sort type.")
