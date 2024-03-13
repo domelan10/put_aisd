@@ -13,7 +13,7 @@ from py_tests.test_decrease import test_decrease
 from py_tests.test_hill import test_hill
 from py_tests.test_stable import test_stable
 
-import datetime
+from time import time
 
 def main():
     print("Sort types: insertion, selection, merge, quick_left, quick_random, heap, bubble, shell, counting") # remove: merge, bubble, counting
@@ -45,6 +45,7 @@ def main():
     
     print("Unsorted array: ", data)
     
+    start = time()
     match(sort):
         case "insertion" | "1":
             data = insertion_sort(data)
@@ -68,6 +69,9 @@ def main():
             print("Unknown sort type.")
             main()
             return 0
+    end = time()
+
+    print("Time: ", end - start)
     
     print("Sorted array: ", data)
 
