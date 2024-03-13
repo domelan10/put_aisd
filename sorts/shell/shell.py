@@ -1,9 +1,21 @@
+def generate_sedgwick_sequence(n: int) -> list:
+    seq = [1]
+
+    while seq[-1] < n:
+        seq.append((4**(len(seq)) + 3*2**(len(seq) - 1) + 1))
+
+    seq.pop()
+    seq.reverse()
+
+    return seq
+
+
 def shell_sort(to_sort: list) -> list:
     n = len(to_sort)
 
-    gap = n // 2
+    seq = generate_sedgwick_sequence(n)
 
-    while gap > 0:
+    for gap in seq:
         j = gap
 
         while j < n:
@@ -20,7 +32,5 @@ def shell_sort(to_sort: list) -> list:
                 i -= gap
 
             j += 1
-
-        gap = gap // 2
         
     return to_sort 
