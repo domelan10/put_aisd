@@ -6,12 +6,13 @@ def partition(to_sort: list, left: int, right: int) -> int:
     pointer = left + 1
     
     for id in range(left + 1, right):
-        if to_sort[id] <= pivot and pointer < right:
+        if to_sort[id] <= pivot:
             to_sort[pointer], to_sort[id] = to_sort[id], to_sort[pointer]
             pointer += 1
     
     to_sort[left], to_sort[pointer - 1] = to_sort[pointer - 1], to_sort[left]
-    return pointer
+    print(f"{pivot}: {to_sort}")
+    return pointer - 1
 
 def quick_sort(to_sort: list, mode: int = 0, left: int = 0, right: int = -1) -> None:
     if right == -1:
