@@ -15,12 +15,15 @@ from py_tests.test_stable import test_stable
 
 from time import time
 
-def main():
-    print("Sort types: insertion, selection, merge, quick_left, quick_random, heap, bubble, shell, counting") # remove: merge, bubble, counting
-    print("Test types: random, increase, decrease, hill, stable\n")
-    sort = input("Select sort to test: ")
-    test = input("Select test type: ")
-    test_size = int(input("Select number of elements to test: "))
+def main(sort: str = "-1", test: str = "-1", test_size: int = 0) -> float:
+    if sort == "-1":
+        print("Sort types: insertion, selection, merge, quick_left, quick_random, heap, bubble, shell, counting") # remove: merge, bubble, counting
+        sort = input("Select sort to test: ")
+    if test == "-1":
+        print("Test types: random, increase, decrease, hill, stable\n")
+        test = input("Select test type: ")
+    if test_size == 0:
+        test_size = int(input("Select number of elements to test: "))
     
     if test_size <= 1:
             print("Number of elements to test must be greater than 1.")
@@ -43,7 +46,7 @@ def main():
             main()
             return 0
     
-    print("Unsorted array: ", data)
+    # print("Unsorted array: ", data)
     
     start = time()
     match(sort):
@@ -71,9 +74,11 @@ def main():
             return 0
     end = time()
 
-    print("Time: ", end - start)
+    # print("Time: ", end - start)
+    print("\t\tdone")
+    # print("Sorted array: ", data)
     
-    print("Sorted array: ", data)
+    return end - start
 
 
 if __name__ == '__main__':
