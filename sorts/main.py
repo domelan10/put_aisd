@@ -74,7 +74,7 @@ def main(sort: str = "-1", test: str = "-1", test_size: int = 0) -> float:
             return 0
     end = time()
 
-    # print("Time: ", end - start)
+    print("\tTime: ", end - start)
     print("\t\tdone")
     # print("Sorted array: ", data)
     

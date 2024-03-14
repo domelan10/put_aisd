@@ -5,15 +5,15 @@ def partition(to_sort: list, left: int, right: int) -> int:
     pointer = left
     
     for id in range(left + 1, right + 1):
-        if to_sort[id] <= pivot:
+        if to_sort[id] < pivot:
             to_sort[pointer + 1], to_sort[id] = to_sort[id], to_sort[pointer + 1]
             pointer += 1
     
     to_sort[left], to_sort[pointer] = to_sort[pointer], to_sort[left]
     return pointer
 
-def quick_sort(to_sort: list, mode: int = 0, left: int = 0, right: int = -1) -> None:
-    if right == -1:
+def quick_sort(to_sort: list, mode: int = 0, left: int = 0, right: int = -2) -> None:
+    if right == -2:
         right = len(to_sort) - 1
     
     if left < right:
@@ -23,11 +23,15 @@ def quick_sort(to_sort: list, mode: int = 0, left: int = 0, right: int = -1) -> 
         
         pivot = partition(to_sort, left, right)
         
-        while to_sort[pivot] == to_sort[left]:
-            pivot += 1
+        # if pivot in [left, right]:
+        #     return
+        
+        print(left, pivot, right)
+        # while to_sort[pivot] == to_sort[left]:
+        #     pivot += 1
             
-            if pivot >= right:
-                return
+        #     if pivot >= right:
+        #         return
         
         quick_sort(to_sort, mode, left, pivot - 1)
         quick_sort(to_sort, mode, pivot + 1, right)
