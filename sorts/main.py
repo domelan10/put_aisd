@@ -14,6 +14,8 @@ from py_tests.test_hill import test_hill
 from py_tests.test_stable import test_stable
 
 from time import time
+import sys
+sys.setrecursionlimit(1000000000)
 
 def main(sort: str = "-1", test: str = "-1", test_size: int = 0) -> float:
     if sort == "-1":

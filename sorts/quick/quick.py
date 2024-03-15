@@ -23,15 +23,7 @@ def quick_sort(to_sort: list, mode: int = 0, left: int = 0, right: int = -2) -> 
         
         pivot = partition(to_sort, left, right)
         
-        # if pivot in [left, right]:
-        #     return
-        
-        print(left, pivot, right)
-        # while to_sort[pivot] == to_sort[left]:
-        #     pivot += 1
-            
-        #     if pivot >= right:
-        #         return
+        # print(left, pivot, right)
         
         quick_sort(to_sort, mode, left, pivot - 1)
         quick_sort(to_sort, mode, pivot + 1, right)
