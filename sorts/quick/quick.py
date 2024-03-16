@@ -3,6 +3,7 @@ import random
 def partition(to_sort: list, left: int, right: int) -> int:
     pivot = to_sort[left]
     pointer = left
+    # pointer2 = right
     
     for id in range(left + 1, right + 1):
         if to_sort[id] < pivot:
@@ -10,7 +11,7 @@ def partition(to_sort: list, left: int, right: int) -> int:
             pointer += 1
     
     to_sort[left], to_sort[pointer] = to_sort[pointer], to_sort[left]
-    return pointer
+    return left
 
 def quick_sort(to_sort: list, mode: int = 0, left: int = 0, right: int = -2) -> None:
     if right == -2:

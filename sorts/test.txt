@@ -1,0 +1,616 @@
+Starting sort: quick_left
+	Starting test: random
+	Test size: 2500
+	Time:  0.06496357917785645
+		done
+	Test size: 5000
+	Time:  0.2570350170135498
+		done
+	Test size: 7500
+	Time:  0.5782923698425293
+		done
+	Test size: 10000
+	Time:  1.0278542041778564
+		done
+	Test size: 12500
+	Time:  2.062619686126709
+		done
+	Test size: 15000
+	Time:  2.527756452560425
+		done
+	Test size: 17500
+	Time:  3.4399094581604004
+		done
+	Test size: 20000
+	Time:  4.902303218841553
+		done
+	Test size: 22500
+	Time:  5.37693190574646
+		done
+	Test size: 25000
+	Time:  6.802771329879761
+		done
+	Test size: 27500
+	Time:  8.309053182601929
+		done
+	Test size: 30000
+	Time:  10.160017013549805
+		done
+	Test size: 32500
+	Time:  11.602535247802734
+		done
+	Test size: 35000
+	Time:  13.505899429321289
+		done
+	Test size: 37500
+	Time:  15.647838354110718
+		done
+	Test size: 40000
+	Time:  20.28533101081848
+		done
+	Test size: 42500
+	Time:  22.027172803878784
+		done
+	Test size: 45000
+	Time:  24.068493843078613
+		done
+	Test size: 47500
+	Time:  28.263040781021118
+		done
+	Test size: 50000
+	Time:  29.897215366363525
+		done
+	Starting test: increase
+	Test size: 2500
+	Time:  0.06427836418151855
+		done
+	Test size: 5000
+	Time:  0.25628209114074707
+		done
+	Test size: 7500
+	Time:  0.5886619091033936
+		done
+	Test size: 10000
+	Time:  1.0662992000579834
+		done
+	Test size: 12500
+	Time:  1.7078428268432617
+		done
+	Test size: 15000
+	Time:  2.9864919185638428
+		done
+	Test size: 17500
+	Time:  3.5620155334472656
+		done
+	Test size: 20000
+	Time:  5.240380525588989
+		done
+	Test size: 22500
+	Time:  6.50934910774231
+		done
+	Test size: 25000
+	Time:  8.00213623046875
+		done
+	Test size: 27500
+	Time:  9.804044008255005
+		done
+	Test size: 30000
+	Time:  11.844242572784424
+		done
+	Test size: 32500
+	Time:  14.602774143218994
+		done
+	Test size: 35000
+	Time:  16.817492246627808
+		done
+	Test size: 37500
+	Time:  19.494744777679443
+		done
+	Test size: 40000
+	Time:  22.99274444580078
+		done
+	Test size: 42500
+	Time:  25.612579584121704
+		done
+	Test size: 45000
+	Time:  27.935578107833862
+		done
+	Test size: 47500
+	Time:  31.350794792175293
+		done
+	Test size: 50000
+	Time:  34.58795619010925
+		done
+	Starting test: decrease
+	Test size: 2500
+	Time:  0.20168638229370117
+		done
+	Test size: 5000
+	Time:  0.7180385589599609
+		done
+	Test size: 7500
+	Time:  1.2488913536071777
+		done
+	Test size: 10000
+	Time:  2.2673161029815674
+		done
+	Test size: 12500
+	Time:  4.073244333267212
+		done
+	Test size: 15000
+	Time:  5.12035059928894
+		done
+	Test size: 17500
+	Time:  7.861756801605225
+		done
+	Test size: 20000
+	Time:  9.785675764083862
+		done
+	Test size: 22500
+	Time:  12.196813821792603
+		done
+	Test size: 25000
+	Time:  17.18557858467102
+		done
+	Test size: 27500
+	Time:  18.837388515472412
+		done
+	Test size: 30000
+	Time:  22.084137678146362
+		done
+	Test size: 32500
+	Time:  26.958223581314087
+		done
+	Test size: 35000
+	Time:  32.06821060180664
+		done
+	Test size: 37500
+	Time:  37.35931754112244
+		done
+	Test size: 40000
+	Time:  43.32242250442505
+		done
+	Test size: 42500
+	Time:  48.19162464141846
+		done
+	Test size: 45000
+	Time:  54.338783979415894
+		done
+	Test size: 47500
+	Time:  62.0199453830719
+		done
+	Test size: 50000
+	Time:  67.9257321357727
+		done
+	Starting test: hill
+	Test size: 2500
+	Time:  0.10771369934082031
+		done
+	Test size: 5000
+	Time:  0.39916014671325684
+		done
+	Test size: 7500
+	Time:  0.8317568302154541
+		done
+	Test size: 10000
+	Time:  1.297189712524414
+		done
+	Test size: 12500
+	Time:  2.3520567417144775
+		done
+	Test size: 15000
+	Time:  2.9465770721435547
+		done
+	Test size: 17500
+	Time:  5.2990522384643555
+		done
+	Test size: 20000
+	Time:  5.576286792755127
+		done
+	Test size: 22500
+	Time:  8.096956491470337
+		done
+	Test size: 25000
+	Time:  10.444263458251953
+		done
+	Test size: 27500
+	Time:  11.778238534927368
+		done
+	Test size: 30000
+	Time:  14.196007251739502
+		done
+	Test size: 32500
+	Time:  16.286396980285645
+		done
+	Test size: 35000
+	Time:  20.304104566574097
+		done
+	Test size: 37500
+	Time:  23.692939519882202
+		done
+	Test size: 40000
+	Time:  25.216763257980347
+		done
+	Test size: 42500
+	Time:  29.97045111656189
+		done
+	Test size: 45000
+	Time:  32.72632932662964
+		done
+	Test size: 47500
+	Time:  38.88663697242737
+		done
+	Test size: 50000
+	Time:  41.6785843372345
+		done
+	Starting test: stable
+	Test size: 2500
+	Time:  0.06351208686828613
+		done
+	Test size: 5000
+	Time:  0.25518250465393066
+		done
+	Test size: 7500
+	Time:  0.572066068649292
+		done
+	Test size: 10000
+	Time:  1.1451747417449951
+		done
+	Test size: 12500
+	Time:  1.9854376316070557
+		done
+	Test size: 15000
+	Time:  2.32528018951416
+		done
+	Test size: 17500
+	Time:  3.266836166381836
+		done
+	Test size: 20000
+	Time:  4.232337713241577
+		done
+	Test size: 22500
+	Time:  5.310083389282227
+		done
+	Test size: 25000
+	Time:  6.8137171268463135
+		done
+	Test size: 27500
+	Time:  8.113885879516602
+		done
+	Test size: 30000
+	Time:  9.631485939025879
+		done
+	Test size: 32500
+	Time:  11.539433240890503
+		done
+	Test size: 35000
+	Time:  12.990854740142822
+		done
+	Test size: 37500
+	Time:  15.249181509017944
+		done
+	Test size: 40000
+	Time:  17.308671712875366
+		done
+	Test size: 42500
+	Time:  19.40085792541504
+		done
+	Test size: 45000
+	Time:  21.371044635772705
+		done
+	Test size: 47500
+	Time:  23.86505889892578
+		done
+	Test size: 50000
+	Time:  26.73402976989746
+		done
+
+
+Starting sort: quick_random
+	Starting test: random
+	Test size: 2500
+	Time:  0.15765953063964844
+		done
+	Test size: 5000
+	Time:  0.6634426116943359
+		done
+	Test size: 7500
+	Time:  1.4671361446380615
+		done
+	Test size: 10000
+	Time:  2.320167064666748
+		done
+	Test size: 12500
+	Time:  3.855417013168335
+		done
+	Test size: 15000
+	Time:  5.604372978210449
+		done
+	Test size: 17500
+	Time:  8.102405548095703
+		done
+	Test size: 20000
+	Time:  10.531666278839111
+		done
+	Test size: 22500
+	Time:  13.326794624328613
+		done
+	Test size: 25000
+	Time:  16.888896942138672
+		done
+	Test size: 27500
+	Time:  20.229248762130737
+		done
+	Test size: 30000
+	Time:  24.699294805526733
+		done
+	Test size: 32500
+	Time:  28.91850233078003
+		done
+	Test size: 35000
+	Time:  35.32270336151123
+		done
+	Test size: 37500
+	Time:  37.536396741867065
+		done
+	Test size: 40000
+	Time:  46.26161313056946
+		done
+	Test size: 42500
+	Time:  50.557748317718506
+		done
+	Test size: 45000
+	Time:  57.59260821342468
+		done
+	Test size: 47500
+	Time:  64.68689441680908
+		done
+	Test size: 50000
+	Time:  71.91973495483398
+		done
+	Starting test: increase
+	Test size: 2500
+	Time:  0.19184422492980957
+		done
+	Test size: 5000
+	Time:  0.7281279563903809
+		done
+	Test size: 7500
+	Time:  1.287398099899292
+		done
+	Test size: 10000
+	Time:  2.5773544311523438
+		done
+	Test size: 12500
+	Time:  3.776871919631958
+		done
+	Test size: 15000
+	Time:  5.683905124664307
+		done
+	Test size: 17500
+	Time:  8.138257503509521
+		done
+	Test size: 20000
+	Time:  10.520978689193726
+		done
+	Test size: 22500
+	Time:  13.506531000137329
+		done
+	Test size: 25000
+	Time:  16.800445079803467
+		done
+	Test size: 27500
+	Time:  20.447492361068726
+		done
+	Test size: 30000
+	Time:  24.460636377334595
+		done
+	Test size: 32500
+	Time:  27.044718265533447
+		done
+	Test size: 35000
+	Time:  30.15940570831299
+		done
+	Test size: 37500
+	Time:  34.70025587081909
+		done
+	Test size: 40000
+	Time:  39.37690019607544
+		done
+	Test size: 42500
+	Time:  44.58800983428955
+		done
+	Test size: 45000
+	Time:  50.164735317230225
+		done
+	Test size: 47500
+	Time:  56.213606119155884
+		done
+	Test size: 50000
+	Time:  62.377530574798584
+		done
+	Starting test: decrease
+	Test size: 2500
+	Time:  0.13619637489318848
+		done
+	Test size: 5000
+	Time:  0.5463337898254395
+		done
+	Test size: 7500
+	Time:  1.2447102069854736
+		done
+	Test size: 10000
+	Time:  2.2254600524902344
+		done
+	Test size: 12500
+	Time:  3.5031850337982178
+		done
+	Test size: 15000
+	Time:  5.23833703994751
+		done
+	Test size: 17500
+	Time:  7.133977651596069
+		done
+	Test size: 20000
+	Time:  9.48971176147461
+		done
+	Test size: 22500
+	Time:  12.033154964447021
+		done
+	Test size: 25000
+	Time:  15.32142448425293
+		done
+	Test size: 27500
+	Time:  18.22306752204895
+		done
+	Test size: 30000
+	Time:  21.975363731384277
+		done
+	Test size: 32500
+	Time:  26.004530906677246
+		done
+	Test size: 35000
+	Time:  30.15560483932495
+		done
+	Test size: 37500
+	Time:  34.585389614105225
+		done
+	Test size: 40000
+	Time:  39.248109340667725
+		done
+	Test size: 42500
+	Time:  44.63211727142334
+		done
+	Test size: 45000
+	Time:  50.221662282943726
+		done
+	Test size: 47500
+	Time:  56.126795530319214
+		done
+	Test size: 50000
+	Time:  62.34272217750549
+		done
+	Starting test: hill
+	Test size: 2500
+	Time:  0.14064908027648926
+		done
+	Test size: 5000
+	Time:  0.5510482788085938
+		done
+	Test size: 7500
+	Time:  1.2285187244415283
+		done
+	Test size: 10000
+	Time:  2.2053062915802
+		done
+	Test size: 12500
+	Time:  3.4991371631622314
+		done
+	Test size: 15000
+	Time:  5.10060977935791
+		done
+	Test size: 17500
+	Time:  7.1245903968811035
+		done
+	Test size: 20000
+	Time:  9.386387586593628
+		done
+	Test size: 22500
+	Time:  11.983997106552124
+		done
+	Test size: 25000
+	Time:  15.522113800048828
+		done
+	Test size: 27500
+	Time:  18.211421012878418
+		done
+	Test size: 30000
+	Time:  22.23423433303833
+		done
+	Test size: 32500
+	Time:  25.97975492477417
+		done
+	Test size: 35000
+	Time:  30.871910333633423
+		done
+	Test size: 37500
+	Time:  34.549752712249756
+		done
+	Test size: 40000
+	Time:  39.63783311843872
+		done
+	Test size: 42500
+	Time:  44.64798641204834
+		done
+	Test size: 45000
+	Time:  50.25063610076904
+		done
+	Test size: 47500
+	Time:  56.582563161849976
+		done
+	Test size: 50000
+	Time:  62.26118326187134
+		done
+	Starting test: stable
+	Test size: 2500
+	Time:  0.06309652328491211
+		done
+	Test size: 5000
+	Time:  0.2490520477294922
+		done
+	Test size: 7500
+	Time:  0.55804443359375
+		done
+	Test size: 10000
+	Time:  0.9948732852935791
+		done
+	Test size: 12500
+	Time:  1.5441341400146484
+		done
+	Test size: 15000
+	Time:  2.223130226135254
+		done
+	Test size: 17500
+	Time:  3.0349960327148438
+		done
+	Test size: 20000
+	Time:  3.9617857933044434
+		done
+	Test size: 22500
+	Time:  5.006364822387695
+		done
+	Test size: 25000
+	Time:  6.173520803451538
+		done
+	Test size: 27500
+	Time:  7.450709104537964
+		done
+	Test size: 30000
+	Time:  8.858174562454224
+		done
+	Test size: 32500
+	Time:  10.411323070526123
+		done
+	Test size: 35000
+	Time:  12.060140371322632
+		done
+	Test size: 37500
+	Time:  14.294633865356445
+		done
+	Test size: 40000
+	Time:  15.776362895965576
+		done
+	Test size: 42500
+	Time:  17.802549123764038
+		done
+	Test size: 45000
+	Time:  19.914130687713623
+		done
+	Test size: 47500
+	Time:  22.19526958465576
+		done
+	Test size: 50000
+	Time:  24.578073024749756
+		done
+
+

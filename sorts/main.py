@@ -22,7 +22,7 @@ def main(sort: str = "-1", test: str = "-1", test_size: int = 0) -> float:
         print("Sort types: insertion, selection, merge, quick_left, quick_random, heap, bubble, shell, counting") # remove: merge, bubble, counting
         sort = input("Select sort to test: ")
     if test == "-1":
-        print("Test types: random, increase, decrease, hill, stable\n")
+        print("Test types: random, increase, decrease, hill, stable")
         test = input("Select test type: ")
     if test_size == 0:
         test_size = int(input("Select number of elements to test: "))
