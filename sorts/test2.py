@@ -7,12 +7,9 @@ sys.setrecursionlimit(1000000000)
 
 def test():
     sorts = ["insertion", "selection", "quick_left", "quick_random", "heap", "shell"]
-    # sorts = ["insertion", "selection", "heap"]
-    # sorts = ["quick_left", "quick_random", "heap", "shell"]
-    # sorts = ["heap", "shell"]
-    # sorts = ["quick_left", "quick_random"]
-    tests = ["random", "increase", "decrease", "hill", "stable"]
-    # tests = ["increase", "decrease", "hill", "stable"]
+    # tests = ["random", "increase", "decrease", "hill", "stable"]
+    tests = ["random", "increase", "decrease", "hill"]
+    # tests = ["stable"]
     tests_shell = ["random", "increase", "decrease", "hill"]
     scale = [test_slope * i for i in range(1, test_range + 1)]
     
@@ -25,7 +22,7 @@ def test():
         axes.set_ylabel("Time of execution")
         
         for sort in sorts:
-            if sort != "shell" and test != "stable":
+            # if sort != "shell" and test != "stable":
                 print(f"\tStarting sort: {sort}")
                 times[test] = [0]
                 for test_size in scale:
