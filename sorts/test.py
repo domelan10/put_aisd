@@ -8,20 +8,20 @@ import sys
 sys.setrecursionlimit(1000000000)
 
 def test():
-    sorts = ["insertion", "selection", "quick_left", "quick_random", "heap", "shell"]
+    # sorts = ["insertion", "selection", "quick_left", "quick_random", "heap", "shell"]
+    sorts = ["quick_left", "quick_random"]
     tests = ["random", "increase", "decrease", "hill", "stable"]
-    tests_shell = ["random", "increase", "decrease", "hill"]
     scale = [test_slope * i for i in range(1, test_range + 1)]
 
     for sort in sorts:
         print(f"Starting sort: {sort}")
         times = {}
-        figure, axes = plt.subplots()
+        _, axes = plt.subplots()
         axes.set_title(f"Sort type: {sort}")
         axes.set_xlabel("Test size")
         axes.set_ylabel("Time of execution")
 
-        for test in tests_shell if sort == "shell" else tests:
+        for test in tests:
             print(f"\tStarting test: {test}")
             times[test] = [0]
             for test_size in scale:
@@ -37,9 +37,8 @@ def test():
 def data_test():
     sorts = ["insertion", "selection", "quick_left", "quick_random", "heap", "shell"]
     # sorts = ["shell"]
-    # tests = ["random", "increase", "decrease", "hill", "stable"]
-    tests = ["stable"]
-    tests_shell = ["random", "increase", "decrease", "hill"]
+    tests = ["random", "increase", "decrease", "hill", "stable"]
+    # tests = ["stable"]
     scale = [test_slope * i for i in range(1, test_range + 1)]
 
     for sort in sorts:
@@ -50,8 +49,7 @@ def data_test():
         axes.set_xlabel("Test size")
         axes.set_ylabel("Time of execution")
 
-        for test in tests_shell if sort == "shell" else tests:
-        # for test in tests:
+        for test in tests:
             print(f"\tStarting test: {test}")
             times[test] = [0]
             for test_size in scale:
@@ -59,7 +57,7 @@ def data_test():
                 test_avg = 0
                 test_sum = 0
                 
-                for test_id in range(0, test_3_range):
+                for _ in range(0, test_3_range):
                     print(f"\tTest size: {test_size}")
                     times[test][-1].append(gen.main(f"{sort}", f"{test}", test_size))
                     test_avg += times[test][-1][-1]
@@ -78,5 +76,5 @@ def data_test():
     plt.show()
 
 if __name__ == "__main__":
-    # test()
-    data_test()
+    test()
+    # data_test()

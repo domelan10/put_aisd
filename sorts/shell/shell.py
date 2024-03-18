@@ -23,7 +23,7 @@ def shell_sort(to_sort: list) -> list:
             
             while i >= 0:
 
-                if to_sort[i+gap] > to_sort[i]:
+                if to_sort[i+gap] >= to_sort[i]:
                     break
 
                 else:

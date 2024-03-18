@@ -50,31 +50,47 @@ def main(sort: str = "-1", test: str = "-1", test_size: int = 0) -> float:
     
     # print("Unsorted array: ", data)
     
-    start = time()
     match(sort):
         case "insertion" | "1":
+            start = time()
             data = insertion_sort(data)
+            end = time()
         case "selection" | "2":
+            start = time()
             data = selection_sort(data)
+            end = time()
         case "merge" | "3":
+            start = time()
             data = merge_sort(data)
+            end = time()
         case "quick_left" | "4":
+            start = time()
             quick_sort(data, 0)
+            end = time()
         case "quick_random" | "5":
+            start = time()
             quick_sort(data, 1)
+            end = time()
         case "heap" | "6":
+            start = time()
             data = heap_sort(data)
+            end = time()
         case "bubble" | "7":
+            start = time()
             data = bubble_sort(data)
+            end = time()
         case "shell" | "8":
+            start = time()
             data = shell_sort(data)
+            end = time()
         case "counting" | "9":
+            start = time()
             data = counting_sort(data)
+            end = time()
         case default:
             print("Unknown sort type.")
             main()
             return 0
-    end = time()
 
     print("\tTime: ", end - start)
     print("\t\tdone")

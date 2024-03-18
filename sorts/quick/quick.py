@@ -1,17 +1,24 @@
 import random
 
 def partition(to_sort: list, left: int, right: int) -> int:
-    pivot = to_sort[left]
-    pointer = left
-    # pointer2 = right
+    pivot = to_sort[left]    
+    pointer_left = left + 1
+    pointer_right = right
     
-    for id in range(left + 1, right + 1):
-        if to_sort[id] < pivot:
-            to_sort[pointer + 1], to_sort[id] = to_sort[id], to_sort[pointer + 1]
-            pointer += 1
+    while True:
+        while pointer_left <= pointer_right and to_sort[pointer_left] <= pivot:
+            pointer_left += 1
+        
+        while pointer_left <= pointer_right and to_sort[pointer_right] >= pivot:
+            pointer_right -= 1
+        
+        if pointer_right < pointer_left:
+            break
+        else:
+            to_sort[pointer_left], to_sort[pointer_right] = to_sort[pointer_right], to_sort[pointer_left]
     
-    to_sort[left], to_sort[pointer] = to_sort[pointer], to_sort[left]
-    return left
+    to_sort[left], to_sort[pointer_right] = to_sort[pointer_right], to_sort[left]
+    return pointer_right
 
 def quick_sort(to_sort: list, mode: int = 0, left: int = 0, right: int = -2) -> None:
     if right == -2:
