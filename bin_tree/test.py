@@ -2,7 +2,7 @@ from array_create import create_array
 from avl_tree import create_avl_tree
 from bst_tree import create_bst_tree
 from show import in_order
-from search import search_max
+from search import search_max, search_min
 
 def test():
     n = int(input("Podaj długość tablicy: \n"))
@@ -18,6 +18,7 @@ def test():
     in_order(root)
 
     print("\n\n Max value in tree is: ", search_max(root))
+    print("\n\n Min value in tree is: ", search_min(root))
 
 
 
