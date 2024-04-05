@@ -1,15 +1,26 @@
 from node import Node
 
 def create_bst_tree(array: list) -> Node | None:    
-    root = Node(array[0])
-    array.pop(0)
-
     if len(array) == 0:
         return None
 
-    if array[0] > root.value:
-        root.right = create_bst_tree(array)
-    else:
-        root.left = create_bst_tree(array)
+    root = Node(array[0])
+
+    for e in array[1:]:
+        curr = root
+        while True:
+            if e < curr.value:
+                if curr.left is None:
+                    curr.left = Node(e)
+                    break
+                else:
+                    curr = curr.left
+            
+            else:
+                if curr.right is None:
+                    curr.right = Node(e)
+                    break
+                else:
+                    curr = curr.right
 
     return root
