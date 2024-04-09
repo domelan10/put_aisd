@@ -5,6 +5,8 @@ def create_bst_tree(array: list) -> Node | None:
         return None
 
     root = Node(array[0])
+    height_left = 0
+    heiht_right = 0
 
     for e in array[1:]:
         curr = root
@@ -12,6 +14,7 @@ def create_bst_tree(array: list) -> Node | None:
             if e < curr.value:
                 if curr.left is None:
                     curr.left = Node(e)
+                    height_left += 1
                     break
                 else:
                     curr = curr.left
@@ -19,8 +22,9 @@ def create_bst_tree(array: list) -> Node | None:
             else:
                 if curr.right is None:
                     curr.right = Node(e)
+                    heiht_right += 1
                     break
                 else:
                     curr = curr.right
-
+    print("height: ", max(heiht_right, height_left))
     return root

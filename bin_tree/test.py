@@ -8,14 +8,16 @@ def test():
     n = int(input("Podaj długość tablicy: \n"))
 
     array = create_array(n)
+    array = sorted(array) # budowa avl tree zostaw, budowa bst tree zakomentuj dla testów :)
     print("Array: ", array, "\n")
 
-    # root = create_avl_tree(array)
+    root = create_avl_tree(array)
 
-    root = create_bst_tree(array)
+    # root = create_bst_tree(array)
 
     print("Printing tree in order...\n")
-    pre_order(root)
+    in_order(root)
+    # pre_order(root)
 
     print("\n\n Max value in tree is: ", search_max(root))
     print("\n\n Min value in tree is: ", search_min(root))
