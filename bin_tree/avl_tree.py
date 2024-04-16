@@ -1,13 +1,19 @@
 from node import Node
+from array_create import create_array
 
-def create_avl_tree(array: list, height_right = 0, heigh_left = 0) -> (tuple[Node, int] | None):
+def create_avl_tree(array: list, height_right = 0, height_left = 0) -> (tuple[Node, int] | None):
     if len(array) == 0:
-        return None
+        return None, max(height_right-1, height_left-1)
     
-    m = len(array) // 2   
+    m = len(array) // 2
 
     root = Node(array[m])
-    root.left = create_avl_tree(array[:m], height_right, heigh_left += 1)
-    root.right = create_avl_tree(array[m + 1:], height_right += 1, heigh_left)
+    root.left, hl = create_avl_tree(array[:m], height_right, height_left + 1)
+    root.right, hr = create_avl_tree(array[m + 1:], height_right + 1, height_left)
 
-    return root, max(heigh_left, height_right)
+    return root, max(hl, hr)
+
+if __name__ == '__main__':
+    root, height = create_avl_tree(create_array(11))
+
+    print(root.value, "height:", height)

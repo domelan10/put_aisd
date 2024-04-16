@@ -11,7 +11,7 @@ def test():
     array = sorted(array) # budowa avl tree zostaw, budowa bst tree zakomentuj dla testów :)
     print("Array: ", array, "\n")
 
-    root = create_avl_tree(array)
+    root, height = create_avl_tree(array)
 
     # root = create_bst_tree(array)
 
@@ -21,6 +21,7 @@ def test():
 
     print("\n\n Max value in tree is: ", search_max(root))
     print("\n\n Min value in tree is: ", search_min(root))
+    print("\n\n Height of a tree is: ", height)
     print(f"\n\n Path to {array[n - 1]} in tree is: ", search_key(root, array[n - 1]))
 
 
