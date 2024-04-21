@@ -1,6 +1,6 @@
 from node import Node
 
-def create_bst_tree(array: list) -> Node | None:    
+def create_bst_tree(array: list) -> (tuple[Node, int] | None):    
     if len(array) == 0:
         return None
 
@@ -26,5 +26,5 @@ def create_bst_tree(array: list) -> Node | None:
                     break
                 else:
                     curr = curr.right
-    print("height: ", max(heiht_right, height_left))
-    return root
+
+    return root, max(heiht_right, height_left)

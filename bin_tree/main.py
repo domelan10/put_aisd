@@ -11,9 +11,9 @@ def main() -> None:
 
     match tree_choice:
         case 1:
-            root = create_bst_tree(create_array(int(input("Podaj długość tablicy: \n"))))
+            root, height = create_bst_tree(create_array(int(input("Podaj długość tablicy: \n"))-1))
         case 2:
-            root = create_avl_tree(create_array(int(input("Podaj długość tablicy: \n"))))
+            root, height = create_avl_tree(create_array(int(input("Podaj długość tablicy: \n"))-1))
         case 3:
             exit()
         case _:
