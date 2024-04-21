@@ -21,13 +21,15 @@ def main() -> None:
             main()
 
     print("Tree created, what do you want to do with it?\n\n")
-    choice = int(input("1) Print tree in-order\n2) Print tree pre-order\n3) Delete nodes\n4) Delete whole tree\n5) Balance tree with rotation\n6) Print max element\n7) Print min elemenent\n8) Exit program\n\n"))
+    choice = int(input("1) Print tree in-order and max height\n2) Print tree pre-order and max height\n3) Delete nodes\n4) Delete whole tree\n5) Balance tree with rotation\n6) Print max element\n7) Print min elemenent\n8) Exit program\n\n"))
 
     match choice:
         case 1:
             in_order(root)
+            print("\nHeight of tree: ", height, "\n\n")
         case 2:
             pre_order(root)
+            print("\nHeight of tree: ", height, "\n\n")
         case 3:
             print("How many nodes do you want to delete?\n\n")
             n = int(input("Enter number of nodes to delete: \n"))
