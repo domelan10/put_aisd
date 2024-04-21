@@ -27,8 +27,8 @@ def delete_node(root, val) -> Node:
         
         # search for minimum in the right subtree
         min_node = search_min(root.right)
-        root.value = min_node.value
-        root.right = delete_node(root.right, min_node.value)
+        root.value = min_node
+        root.right = delete_node(root.right, min_node)
 
     return root
     
