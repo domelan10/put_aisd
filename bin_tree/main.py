@@ -11,47 +11,53 @@ def main() -> None:
 
     match tree_choice:
         case 1:
-            root, height = create_bst_tree(create_array(int(input("\n\nPodaj długość tablicy: \n"))-1))
+            array = create_array(int(input("\n\nGive length of an array: \n")))
+            print("\nGenerated array: \n", array)
+            root, height = create_bst_tree(array)
         case 2:
-            root, height = create_avl_tree(create_array(int(input("\n\nPodaj długość tablicy: \n"))-1))
+            array = create_array(int(input("\n\nGive length of an array: \n")))
+            print("\nGenerated array: \n", array)
+            root, height = create_avl_tree(array)
         case 3:
             exit()
         case _:
             print("Wrong choice!")
             main()
-
-    print("\n\n\nTree created, what do you want to do with it?\n")
-    choice = int(input("1) Print tree in-order and max height\n2) Print tree pre-order and max height\n3) Delete nodes\n4) Delete whole tree\n5) Balance tree with rotation\n6) Print max element\n7) Print min elemenent\n8) Exit program\n\n"))
-
-    match choice:
-        case 1:
-            in_order(root)
-            print("\nHeight of tree: ", height, "\n\n")
-        case 2:
-            pre_order(root)
-            print("\nHeight of tree: ", height, "\n\n")
-        case 3:
-            print("How many nodes do you want to delete?\n")
-            n = int(input("Enter number of nodes to delete: \n"))
-            print("Which nodes do you want to delete?")
-            values = list()
-            for i in range(n):
-                values.append(int(input()))
-            for val in values:
-                delete_node(root, val)
-        case 4:
-            delete_tree(root)
-        case 5:
-            pass
-        case 6:
-            search_max(root)
-        case 7:
-            search_min(root)
-        case 8:
-            exit()
-        case _:
-            print("Wrong choice!")
-            main()
+    while True:
+        print("\n\n\nTree created, what do you want to do with it?\n")
+        choice = int(input("1) Print tree in-order and max height\n2) Print tree pre-order and max height\n3) Delete nodes\n4) Delete whole tree\n5) Balance tree with rotation\n6) Print max element\n7) Print min elemenent\n8) Generate new tree\n9) Exit program\n\n"))
+        print("\n\n\n")
+        
+        match choice:
+            case 1:
+                in_order(root)
+                print("\nHeight of tree: ", height, "\n\n")
+            case 2:
+                pre_order(root)
+                print("\nHeight of tree: ", height, "\n\n")
+            case 3:
+                print("How many nodes do you want to delete?\n")
+                n = int(input("Enter number of nodes to delete: \n"))
+                print("Which nodes do you want to delete?")
+                values = list()
+                for i in range(n):
+                    values.append(int(input()))
+                for val in values:
+                    root = delete_node(root, val)
+            case 4:
+                delete_tree(root)
+            case 5:
+                pass
+            case 6:
+                search_max(root)
+            case 7:
+                search_min(root)
+            case 8:
+                break
+            case 9:
+                exit()
+            case _:
+                print("Wrong choice!")
     
     main()
 

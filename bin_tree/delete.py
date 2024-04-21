@@ -10,10 +10,10 @@ def delete_node(root, val) -> Node:
         return root
     
     if val < root.value:
-        root.value = delete_node(root.left, val)
+        root.left = delete_node(root.left, val)
 
     elif val > root.value:
-        root.value = delete_node(root.right, val)
+        root.right = delete_node(root.right, val)
     
     else:
         if root.left is None and root.right is None:
