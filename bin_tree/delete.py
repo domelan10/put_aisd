@@ -25,9 +25,23 @@ def delete_node(root, val) -> Node:
         if root.right is None:
             return root.left
         
+        # search for minimum in the right subtree
         min_node = search_min(root.right)
         root.value = min_node.value
         root.right = delete_node(root.right, min_node.value)
 
     return root
     
+
+def delete_tree(root) -> None:
+    """
+    Deletes given nodes from the tree.
+    """
+    
+    if root is None:
+        return root
+    
+    delete_tree(root.left)
+    delete_tree(root.right)
+    print("Deleting: ", root.value,"\n")
+    del root
