@@ -2,6 +2,9 @@ from node import Node
 from array_create import create_array
 
 def create_avl_tree(array: list, height_right = 0, height_left = 0) -> (tuple[Node, int] | None):
+    """
+    Create a AVL tree.
+    """
     if len(array) == 0:
         return None, max(height_right-1, height_left-1)
     

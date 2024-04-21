@@ -6,7 +6,7 @@ def search_max(node) -> int:
         return node.value
     else:
         return search_max(node.right)
-    
+
 def search_min(node) -> int:
     """
     Returns the minimum value in the tree.
@@ -15,7 +15,7 @@ def search_min(node) -> int:
         return node.value
     else:
         return search_min(node.left)
-    
+
 def search_key(node, key) -> int:
     """
     Returns the path to the key in the tree.

@@ -1,6 +1,9 @@
 from node import Node
 
-def create_bst_tree(array: list) -> (tuple[Node, int] | None):    
+def create_bst_tree(array: list) -> (tuple[Node, int] | None):
+    """
+    Create a BST tree from an array.
+    """
     if len(array) == 0:
         return None
 
