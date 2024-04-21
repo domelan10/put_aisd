@@ -11,16 +11,16 @@ def main() -> None:
 
     match tree_choice:
         case 1:
-            root, height = create_bst_tree(create_array(int(input("Podaj długość tablicy: \n"))-1))
+            root, height = create_bst_tree(create_array(int(input("\n\nPodaj długość tablicy: \n"))-1))
         case 2:
-            root, height = create_avl_tree(create_array(int(input("Podaj długość tablicy: \n"))-1))
+            root, height = create_avl_tree(create_array(int(input("\n\nPodaj długość tablicy: \n"))-1))
         case 3:
             exit()
         case _:
             print("Wrong choice!")
             main()
 
-    print("Tree created, what do you want to do with it?\n\n")
+    print("\n\n\nTree created, what do you want to do with it?\n")
     choice = int(input("1) Print tree in-order and max height\n2) Print tree pre-order and max height\n3) Delete nodes\n4) Delete whole tree\n5) Balance tree with rotation\n6) Print max element\n7) Print min elemenent\n8) Exit program\n\n"))
 
     match choice:
@@ -31,9 +31,9 @@ def main() -> None:
             pre_order(root)
             print("\nHeight of tree: ", height, "\n\n")
         case 3:
-            print("How many nodes do you want to delete?\n\n")
+            print("How many nodes do you want to delete?\n")
             n = int(input("Enter number of nodes to delete: \n"))
-            print("Which nodes do you want to delete?\n\n")
+            print("Which nodes do you want to delete?")
             values = list()
             for i in range(n):
                 values.append(int(input()))
