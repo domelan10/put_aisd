@@ -1,20 +1,26 @@
-def search_max(node) -> int:
+def search_max(node, root = None) -> int:
     """
     Returns the maximum value in the tree.
     """
+    if root is None:
+        root = node
+    
     if node.right is None:
-        return node.value
+        return search_key(root, node.value)
     else:
-        return search_max(node.right)
+        return search_max(node.right, root)
 
-def search_min(node) -> int:
+def search_min(node, root = None) -> int:
     """
     Returns the minimum value in the tree.
     """
+    if root is None:
+        root = node
+    
     if node.left is None:
-        return node.value
+        return search_key(root, node.value)
     else:
-        return search_min(node.left)
+        return search_min(node.left, root)
 
 def search_key(node, key) -> int:
     """
