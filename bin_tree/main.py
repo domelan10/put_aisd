@@ -48,7 +48,7 @@ def main() -> None:
             case 4:
                 delete_tree(root)
             case 5:
-                balance(root)
+                root = balance(root)
             case 6:
                 print("\nMax element: ",search_max(root),"\n")
             case 7:
