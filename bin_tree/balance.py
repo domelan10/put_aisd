@@ -2,16 +2,24 @@ from node import Node
 from rotate import rotate_left, rotate_right
 
 def height_right(root: Node) -> int:
-    if root.right is None:
-        return 0
-    else:
-        return height_right(root.right) + 1
+    current = root
+    height = 0
+    while True:
+        if current.right is None:
+            return height
+        else:
+            current = current.right
+            height += 1
 
 def height_left(root: Node) -> int:
-    if root.left is None:
-        return 0
-    else:
-        return height_left(root.left) + 1
+    current = root
+    height = 0
+    while True:
+        if current.left is None:
+            return height
+        else:
+            current = current.left
+            height += 1
 
 def balance(root: Node) -> Node:
     root = shift_right(root)
