@@ -1,8 +1,8 @@
-from create import create__adjacency_matrix
+from create import create_adjacency_matrix
 from show import DFS, BFS
 
 def main() -> None:
-    array = create__adjacency_matrix(int(input()))
+    array = create_adjacency_matrix(int(input()))
     for sub_array in array:
         print(sub_array)
     print("\n")
