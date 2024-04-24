@@ -10,7 +10,7 @@ def DFS(array: list[list[int]]) -> None:
                 print(id)
 
 
-def bfs(graph: list[list[int]], s: int) -> None:
+def BFS(graph: list[list[int]], s: int) -> None:
     h = len(graph)
     visited = set()
     queue = [s]
