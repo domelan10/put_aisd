@@ -23,7 +23,6 @@ def create_successor_list(array: list[list[int]]) -> list[list[int]]:
         for j in range(i + 1, len(array)):
             if array[i][j] == 1:
                 table[i].append(j)
-                table[j].append(i)
 
     return table
 
