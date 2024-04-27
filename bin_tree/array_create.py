@@ -1,11 +1,13 @@
 import random
 
+test_slope = 2500
+test_range = 5
 
 def create_array(n) -> list:
     # array = [n for n in range(1, n+1)]
-    array = {random.randint(0, 200) for n in range(1,n+1)}
+    array = {random.randint(0, n*4) for n in range(1,n+1)}
     while len(array) < n:
-        array.add(random.randint(0, 200))
+        array.add(random.randint(0, n*4))
     array = list(array)
     return sorted(array)
 
