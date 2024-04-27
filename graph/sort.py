@@ -73,7 +73,6 @@ def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[
         case 1:
             '''Adjacency Matrix'''
             while queue:
-                print(current, queue, l)
                 count = 0
                 
                 for id, val in enumerate(array[current][::-1]):
@@ -95,7 +94,6 @@ def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[
         case 2:
             '''Succesor List'''
             while queue:
-                print(current, queue, l)
                 count = 0
                 
                 for neigh in array[current][::-1]:
@@ -117,7 +115,6 @@ def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[
         case 3:
             '''Edge Table'''
             while queue:
-                print(current, queue, l)
                 count = 0
                 
                 for _, [out, to] in enumerate(array):

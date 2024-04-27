@@ -1,83 +1,43 @@
 def DFS(array: list[list[int]], option: int) -> None:
     visited = set()
-    queue = []
-    max_length = len(array)
-    current = 0
+    queue = [0]
     
     match(option):
         case 1:
-            while len(visited) < max_length:
+            n = len(array) - 1
+            while queue:
+                current = queue.pop()
                 if current not in visited:
-                    visited.add(current)
-                    queue.append(current)
                     print(current)
-                    
-                    tmp_array = list()
-                    for id, element in enumerate(array[current]):
-                        if element == 1:
-                            tmp_array.append(id)
-                    
-                    for element in sorted(tmp_array, reverse = True):
-                        queue.append(element)
-                
-                if len(queue) > 0:
-                    current = queue.pop()
-                else:
-                    for id in range(max_length):
-                        if id not in visited:
-                            current = id
+                    visited.add(current)
+                    for id, val in enumerate(array[current][::-1]):
+                        if n - id not in visited and val == 1:
+                            queue.append(n - id)
             return
         
         case 2:
-            while len(visited) < max_length:
+            while queue:
+                current = queue.pop()
                 if current not in visited:
-                    visited.add(current)
-                    queue.append(current)
                     print(current)
-                    
-                    for element in sorted(array[current], reverse = True):
-                        queue.append(element)
-                
-                if len(queue) > 0:
-                    current = queue.pop()
-                else:
-                    for id in range(max_length):
-                        if id not in visited:
-                            current = id
+                    visited.add(current)
+                    for neigh in array[current][::-1]:
+                        if neigh not in visited:
+                            queue.append(neigh)
             return
         
         case 3:
-            max_length = 0
-            for element in array:
-                if element[1] > max_length:
-                    max_length = element[1]
-            max_length += 1
-            
-            while len(visited) < max_length:
+            while queue:
+                current = queue.pop()
                 if current not in visited:
-                    visited.add(current)
-                    queue.append(current)
                     print(current)
-                    tmp_array = list()
-                    
-                    for element in array:
-                        if element[0] == current:
-                            tmp_array.append(element[1])
-                    
-                    for element in sorted(tmp_array, reverse = True):
-                        queue.append(element)
-                
-                if len(queue) > 0:
-                    current = queue.pop()
-                else:
-                    for id in range(max_length):
-                        if id not in visited:
-                            current = id
+                    visited.add(current)
+                    for _, [out, to] in enumerate(array[::-1]):
+                        if to not in visited and out == current and to not in visited:
+                            queue.append(to)
             return
 
 
-    
-    
 def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
     visited = set()
     queue = [s]
@@ -86,7 +46,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 1:
             while queue:
                 v = queue.pop(0)
-                print(v, "\n")
+                print(v)
 
                 for neigh in range(h):
                     if graph[v][neigh] == 1 and neigh not in visited:
@@ -104,7 +64,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 2:
             while queue:
                 v = queue.pop(0)
-                print(v, "\n")
+                print(v)
 
                 for neigh in graph[v]:
                     if neigh not in visited:
@@ -122,7 +82,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 3:
             while queue:
                 v = queue.pop(0)
-                print(v, "\n")
+                print(v)
 
                 for sub_array in graph:
                     if sub_array[0] == v and sub_array[1] not in visited:
@@ -141,19 +101,19 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
 def main():
     from create import create_adjacency_matrix, create_edge_table, create_successor_list
     n = 10
-    adj = create_adjacency_matrix(n)
-    # adj = [
-    #     [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
-    #     [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
-    #     [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
-    #     [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
-    #     [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-    #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    # ]
+    # adj = create_adjacency_matrix(n)
+    adj = [
+        [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
+        [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
+        [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
+        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
     # correct answer for DFS: 0 1 2 4 6 9 5 7 8 3
     # correct answer for BFS: 0 1 2 4 3 6 7 8 9 5
     edge, succ = create_edge_table(adj), create_successor_list(adj)
@@ -165,13 +125,13 @@ def main():
     print("\n")
     print("Successor List")
     for i, sub_array in enumerate(succ):
-        print("v"+str(i),sub_array, end='\n')
+        print("v"+str(i),sub_array)
 
     print("\n")
     print("Edge Table")
     print("out in")
     for i, sub_array in enumerate(edge):
-        print("e"+str(i),sub_array, end='\n')
+        print("e"+str(i),sub_array)
     
     print("\n")
     print("Adjacency Matrix")
