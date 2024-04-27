@@ -23,8 +23,6 @@ def topological_sort(array: list[list[int]], n: int, option: int = 1,  )-> list[
 
             return l
 
-
-
         case 2:
             '''Succesor List'''
 
