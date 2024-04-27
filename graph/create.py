@@ -9,7 +9,7 @@ def create_adjacency_matrix(n: int) -> list[list[int]]:
         max_count -= 1
     
     while max_count > 0:
-        i, j = random.randint(0, n - 1), random.randint(0, n - 1);
+        i, j = random.randint(0, n - 1), random.randint(0, n - 1)
         if i < j and array[i][j] != 1:
             array[i][j] = 1
             max_count -= 1

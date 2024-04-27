@@ -1,22 +1,25 @@
 def topological_sort(array: list[list[int]], option: int) -> list[int]:
     l = list()
+    n = len(array)
+    visited = set()
 
     match option:
         case 1:
             '''Adjacency Matrix'''
 
-            for sub_array in array:
-                if 1 not in sub_array:
-                    found = array.index(sub_array)
-                    # print(found)
-                    l.append(found)
-                    for i in array:
-                        i[found] = 0
-            
-            for sub_array in array:
-                for element in sub_array:
-                    print(element, end=' ')
-                print('\n')
+            f = True
+            while f:
+                f = False
+                for i in range(n):
+                    for sub_array in array:
+                        if sub_array[i] == 1 or i in visited:
+                            break
+                        f = True
+                        visited.add(i)
+                        l.append(i)
+                        for j in range(n):
+                            for sub_array in array:
+                                sub_array[j] = 0
 
             return l
 
@@ -24,6 +27,8 @@ def topological_sort(array: list[list[int]], option: int) -> list[int]:
 
         case 2:
             '''Succesor List'''
+
+            
 
         case 3:
             '''Edge Table'''
