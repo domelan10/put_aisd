@@ -2,14 +2,16 @@ import random
 
 def create_adjacency_matrix(n: int) -> list[list[int]]:
     array = [[0 for _ in range(n)] for _ in range(n)]
+    max_count = int(0.25*n*(n-1)) + 1
     
     for i in range(1, n):
         array[i - 1][i] = 1
     
     for i in range(1, n - 1):
         for j in range(i + 1, n):
-            if random.random() < 0.5:
+            if random.random() < 0.5 and max_count > 0:
                 array[i - 1][j] = 1
+                max_count -= 1
     
     array[n - 2][n - 1] = 1
     return array
