@@ -6,7 +6,7 @@ def search_max(node, root = None) -> int:
         root = node
     
     if node.right is None:
-        return search_key(root, node.value)
+        return node.value # search_key(root, node.value)
     else:
         return search_max(node.right, root)
 
