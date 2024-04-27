@@ -13,22 +13,8 @@ def DFS(array: list[list[int]]) -> None:
 def BFS(graph: list[list[int]], s: int) -> None:
     h = len(graph)
     visited = set()
-    in_degree = {}
     queue = [s]
     visited.add(s)
-
-    for i in range(h):
-        in_degree[i] = 0
-    
-    for sub_array in graph:
-        for i in range(h):
-            if sub_array[i] == 1:
-                in_degree[i] += 1
-
-    for i in range(h):
-        if in_degree[i] == 0 and i not in visited:
-            queue.append(i)
-            visited.add(i)
     
     while queue:
         v = queue.pop(0)
@@ -36,5 +22,12 @@ def BFS(graph: list[list[int]], s: int) -> None:
 
         for neigh in range(h):
             if graph[v][neigh] == 1 and neigh not in visited:
-                queue.insert(0, neigh)
+                queue.append(neigh)
                 visited.add(neigh)
+        
+        if not queue and len(visited) < h:
+            for neigh in range(h):
+                if neigh not in visited:
+                    queue.append(neigh)
+                    visited.add(neigh)
+                    break

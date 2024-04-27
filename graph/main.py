@@ -7,6 +7,7 @@ def main() -> None:
         print(sub_array)
     print("\n")
     DFS(array)
+    print("\n")
     BFS(array, 0)
 
 
