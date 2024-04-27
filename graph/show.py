@@ -8,7 +8,7 @@ def DFS(array: list[list[int]], option: int) -> None:
             while queue:
                 current = queue.pop()
                 if current not in visited:
-                    print(current)
+                    # print(current)
                     visited.add(current)
                     for id, val in enumerate(array[current][::-1]):
                         if n - id not in visited and val == 1:
@@ -19,7 +19,7 @@ def DFS(array: list[list[int]], option: int) -> None:
             while queue:
                 current = queue.pop()
                 if current not in visited:
-                    print(current)
+                    # print(current)
                     visited.add(current)
                     for neigh in array[current][::-1]:
                         if neigh not in visited:
@@ -30,7 +30,7 @@ def DFS(array: list[list[int]], option: int) -> None:
             while queue:
                 current = queue.pop()
                 if current not in visited:
-                    print(current)
+                    # print(current)
                     visited.add(current)
                     for _, [out, to] in enumerate(array[::-1]):
                         if to not in visited and out == current and to not in visited:
@@ -46,7 +46,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 1:
             while queue:
                 v = queue.pop(0)
-                print(v)
+                # print(v)
 
                 for neigh in range(h):
                     if graph[v][neigh] == 1 and neigh not in visited:
@@ -64,7 +64,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 2:
             while queue:
                 v = queue.pop(0)
-                print(v)
+                # print(v)
 
                 for neigh in graph[v]:
                     if neigh not in visited:
@@ -82,19 +82,21 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 3:
             while queue:
                 v = queue.pop(0)
-                print(v)
+                # print(v)
 
                 for sub_array in graph:
-                    if sub_array[0] == v and sub_array[1] not in visited:
-                        queue.append(sub_array[1])
-                        visited.add(sub_array[1])
+                    if len(sub_array) > 0:
+                        if sub_array[0] == v and sub_array[1] not in visited:
+                            queue.append(sub_array[1])
+                            visited.add(sub_array[1])
                 
                 if not queue and len(visited) < h:
                     for sub_array in graph:
-                        if sub_array[0] not in visited:
-                            queue.append(sub_array[0])
-                            visited.add(sub_array[0])
-                            break
+                        if len(sub_array) > 0:
+                            if sub_array[0] not in visited:
+                                queue.append(sub_array[0])
+                                visited.add(sub_array[0])
+                                break
             return
 
 

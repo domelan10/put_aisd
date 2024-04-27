@@ -1,44 +1,121 @@
-from create import create_adjacency_matrix, create_edge_table, create_successor_list
+from create import create_adjacency_matrix, create_edge_table, create_successor_list, test_range, test_slope
 from show import BFS, DFS
-from sort import topological_sort
+from sort import topological_sort_kahn, topological_sort_tarjan
+from time import time
+import sys
+import matplotlib.pyplot as plt
 
-def main() -> None:
-    n = int(input("Give size of the matrix: "))
-    adj_matrix = create_adjacency_matrix(n)
-    edge_tab = create_edge_table(adj_matrix)
-    successor_list = create_successor_list(adj_matrix)
+
+def test() -> None:
+    representations = ["adj_matrix", "edge_table", "successor_list"]
+    # tests = ["find_max", "in_order", "balance_bst"]
+    scale = [test_slope * i for i in range(1, test_range + 1)]
     
-    print("Adjacency Matrix")
-    for sub_array in adj_matrix:
-        for element in sub_array:
-            print(element)
-    
-    print("\n")
-    print("Successor List")
-    for i, sub_array in enumerate(successor_list):
-        print("v"+str(i),sub_array)
+    option = 2 # change type of tests
 
-    print("\n")
-    print("Edge Table")
-    print("out in")
-    for i, sub_array in enumerate(edge_tab):
-        print("e"+str(i),sub_array)
+    _, axes = plt.subplots()
+    axes.set_xlabel("Test size")
+    axes.set_ylabel("Time of execution")
 
-    option1 = int(input("Select sort option:\n1 - Adjancency Matrix\n2 - Successor List\n3 - Edge Table\n"))
-
-    match option1:
+    match option:
         case 1:
-            l = topological_sort(adj_matrix,n,option1)
+            axes.set_title(f"Traversal functions: BFS")
 
+            for representation in representations:
+                print(f"Starting representation: {representation}")
+                times = {}
+                
+                times[representation] = [0]
+                for test_size in scale:
+                    print(f"\tTest size: {test_size}")
+                    
+                    match representation:
+                        case "adj_matrix":
+                            g =create_adjacency_matrix(test_size)
+                            start = time()
+                            BFS(g,0,1,test_size)
+                            end = time()
+                        case "edge_table":
+                            g = create_edge_table(test_size)
+                            start = time()
+                            BFS(g,0,3,test_size)
+                            end = time()
+                        case "successor_list":
+                            g = create_adjacency_matrix(test_size)
+                            g = create_successor_list(g)
+                            start = time()
+                            BFS(g,0,2,test_size)
+                            end = time()
+                    times[representation].append(end - start)
+
+                axes.plot([0]+[element for element in scale], times[representation], label=representation)
+                        
         case 2:
-            l = topological_sort(successor_list,n,option1)
+            axes.set_title(f"Traversal functions: DFS")
+            for representation in representations:
+                print(f"Starting representation: {representation}")
+                times = {}
+                
+                times[representation] = [0]
+                for test_size in scale:
+                    print(f"\tTest size: {test_size}")
+                    
+                    match representation:
+                        case "adj_matrix":
+                            g =create_adjacency_matrix(test_size)
+                            start = time()
+                            DFS(g,1)
+                            end = time()
+                        case "edge_table":
+                            g = create_edge_table(test_size)
+                            start = time()
+                            DFS(g,3)
+                            end = time()
+                        case "successor_list":
+                            g = create_adjacency_matrix(test_size)
+                            g = create_successor_list(g)
+                            start = time()
+                            DFS(g,2)
+                            end = time()
+                    times[representation].append(end - start)
+
+                axes.plot([0]+[element for element in scale], times[representation], label=representation)
 
         case 3:
-            l = topological_sort(edge_tab,n,option1)
+            axes.set_title(f"Topological sort: Kahn")
+            for representation in representations:
+                print(f"Starting representation: {representation}")
+                times = {}
+                
+                times[representation] = [0]
+                for test_size in scale:
+                    print(f"\tTest size: {test_size}")
+                    
+                    match representation:
+                        case "adj_matrix":
+                            g =create_adjacency_matrix(test_size)
+                            start = time()
+                            topological_sort_kahn(g,test_size,1)
+                            end = time()
+                        case "edge_table":
+                            g = create_edge_table(test_size)
+                            start = time()
+                            topological_sort_kahn(g,test_size,3)
+                            end = time()
+                        case "successor_list":
+                            g = create_adjacency_matrix(test_size)
+                            g = create_successor_list(g)
+                            start = time()
+                            topological_sort_kahn(g,test_size,2)
+                            end = time()
+                    times[representation].append(end - start)
 
-    print(l)
+                axes.plot([0]+[element for element in scale], times[representation], label=representation)
 
+    axes.legend()
+    print("\n")
+    plt.show()
 
 if __name__ == '__main__':
-    main()
+    test()
     
