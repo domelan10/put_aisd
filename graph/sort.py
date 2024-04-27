@@ -76,11 +76,10 @@ def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[
                 print(current, queue, l)
                 count = 0
                 
-                for i in range(n):
-                    for neigh in range(i, n + 1):
-                        if colors[neigh] == 0 and queue[-1] != neigh:
-                            queue.append(neigh)
-                            count += 1
+                for id, val in enumerate(array[current][::-1]):
+                    if colors[n - id - 1] == 0 and queue[-1] != n - id - 1 and val == 1:
+                        queue.append(n - id - 1)
+                        count += 1
                 
                 current = queue[-1]
                 colors[current] = 1
@@ -121,9 +120,9 @@ def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[
                 print(current, queue, l)
                 count = 0
                 
-                for neigh in array[current][::-1]:
-                    if colors[neigh] == 0 and queue[-1] != neigh:
-                        queue.append(neigh)
+                for _, [out, to] in enumerate(array):
+                    if colors[to] == 0 and queue[-1] != to and out == current:
+                        queue.append(to)
                         count += 1
                 
                 current = queue[-1]
