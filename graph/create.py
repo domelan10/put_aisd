@@ -51,11 +51,11 @@ def create_edge_table(n: int) -> list[list[int]]:
     for i in range(num_edges):
         while True:
             edge = [random.randint(0, n-1), random.randint(0, n-1)]
-            if edge[0] != edge[1] and (edge not in edges or edge[::-1] not in edges):
-                if edge[0] < edge[1]:
-                    edges.append(edge)
-                else:
-                    edges.append(edge[::-1])
+            if edge[0] < edge[1] and edge not in edges:
+                edges.append(edge)
+                break
+            elif edge[0] > edge[1] and edge[::-1] not in edges:
+                edges.append(edge[::-1])
                 break
 
     return edges
