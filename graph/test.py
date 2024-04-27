@@ -3,7 +3,8 @@ from show import BFS, DFS
 from sort import topological_sort
 
 def main() -> None:
-    matrix = create_adjacency_matrix(int(input()))
+    n = int(input("Give size of the matrix: "))
+    matrix = create_adjacency_matrix(n)
     table = create_edge_table(matrix)
     successor_list = create_successor_list(matrix)
     
@@ -26,7 +27,18 @@ def main() -> None:
         print("e"+str(i),sub_array, end=' ')
         print('\n')
 
-    l = topological_sort(matrix,option=1)
+    option = int(input("Select sort option:\n1 - Adjancency Matrix\n2 - Successor List\n3 - Edge Table\n"))
+
+    match option:
+        case 1:
+            l = topological_sort(matrix,n,option)
+
+        case 2:
+            l = topological_sort(successor_list,n,option)
+
+        case 3:
+            l = topological_sort(table,n,option)
+
     print(l)
 
 
