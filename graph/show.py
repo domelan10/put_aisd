@@ -206,13 +206,23 @@ def main():
     for i, sub_array in enumerate(edge):
         print("e"+str(i),sub_array, end='\n')
     
-    print("\n\n")
+    print("\n")
     print("Adjacency Matrix")
-    DFS(adj, 1), print("\n"), BFS(adj, 0, 1), print("\n\n")
+    DFS(adj, 1)
+    print("\n")
+    BFS(adj, 0, 1)
+    
+    print("\n")
     print("Successor List")
-    DFS(succ, 2), print("\n"), BFS(succ, 0, 2), print("\n\n")
+    DFS(succ, 2)
+    print("\n")
+    BFS(succ, 0, 2)
+    
+    print("\n")
     print("Edge Table")
-    DFS(edge, 3), print("\n"), BFS(edge, 0, 3), print("\n\n")
+    DFS(edge, 3)
+    print("\n")
+    BFS(edge, 0, 3)
 
 if __name__ == "__main__":
     main()
