@@ -24,17 +24,17 @@ def main() -> None:
     for i, sub_array in enumerate(edge_tab):
         print("e"+str(i),sub_array)
 
-    option = int(input("Select sort option:\n1 - Adjancency Matrix\n2 - Successor List\n3 - Edge Table\n"))
+    option1 = int(input("Select sort option:\n1 - Adjancency Matrix\n2 - Successor List\n3 - Edge Table\n"))
 
-    match option:
+    match option1:
         case 1:
-            l = topological_sort(adj_matrix,n,option)
+            l = topological_sort(adj_matrix,n,option1)
 
         case 2:
-            l = topological_sort(successor_list,n,option)
+            l = topological_sort(successor_list,n,option1)
 
         case 3:
-            l = topological_sort(edge_tab,n,option)
+            l = topological_sort(edge_tab,n,option1)
 
     print(l)
 

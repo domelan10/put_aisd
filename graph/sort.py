@@ -1,4 +1,4 @@
-def topological_sort(array: list[list[int]], n: int, option: int = 1,  )-> list[int]:
+def topological_sort_kahn(array: list[list[int]], n: int, option: int = 1)-> list[int]:
     l = list()
     visited = set()
 
@@ -63,6 +63,25 @@ def topological_sort(array: list[list[int]], n: int, option: int = 1,  )-> list[
 
             return l
 
+
+def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[int]:
+    color_tab = [0 for _ in range(n)]
+    # ^^^ 0 = white, 1 = gray, 2 = black
+    l = list()
+    s = list()
+    visited = set()
+    color_tab[0] = 1
+
+    match option:
+        case 1:
+            '''Adjacency Matrix'''
+        
+        case 2:
+            '''Succesor List'''
+
+        case 3:
+            '''Edge Table'''
+            
 
 if __name__ == "__main__":
     pass
