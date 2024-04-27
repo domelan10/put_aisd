@@ -23,8 +23,6 @@ def topological_sort_kahn(array: list[list[int]], n: int, option: int = 1)-> lis
 
             return l
 
-
-
         case 2:
             '''Succesor List'''
 
