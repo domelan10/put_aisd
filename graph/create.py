@@ -4,8 +4,9 @@ def create_adjacency_matrix(n: int) -> list[list[int]]:
     array = [[0 for _ in range(n)] for _ in range(n)]
     max_count = int(0.25*n*(n-1))
     
-    # for i in range(1, n):
-    #     array[i - 1][i] = 1
+    for i in range(1, n):
+        array[i - 1][i] = 1
+        max_count -= 1
     
     while max_count > 0:
         i, j = random.randint(0, n - 1), random.randint(0, n - 1);
