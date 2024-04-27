@@ -107,6 +107,9 @@ def BFS(array: list[list[int]], current: int, option) -> None:
                     for id in range(max_length):
                         if id not in visited:
                             current = id
+                            if current not in printed:
+                                printed.add(current)
+                                print(current)
             return
         
         case 2:
@@ -129,6 +132,9 @@ def BFS(array: list[list[int]], current: int, option) -> None:
                     for id in range(max_length):
                         if id not in visited:
                             current = id
+                            if current not in printed:
+                                printed.add(current)
+                                print(current)
             return
         
         case 3:
@@ -160,23 +166,29 @@ def BFS(array: list[list[int]], current: int, option) -> None:
                     for id in range(max_length):
                         if id not in visited:
                             current = id
+                            if current not in printed:
+                                printed.add(current)
+                                print(current)
             return
 
 
 def main():
     from create import create_adjacency_matrix, create_edge_table, create_successor_list
-    adj = [
-        [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
-        [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
-        [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
-        [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
-        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ]
+    adj = create_adjacency_matrix(10)
+    # adj = [
+    #     [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
+    #     [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
+    #     [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
+    #     [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
+    #     [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    # ]
+    # correct answer for DFS: 0 1 2 4 6 9 5 7 8 3
+    # correct answer for BFS: 0 1 2 4 3 6 7 8 9 5
     edge, succ = create_edge_table(adj), create_successor_list(adj)
     
     print("Adjacency Matrix")
