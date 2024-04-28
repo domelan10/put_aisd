@@ -1,7 +1,7 @@
 import random
 
-test_slope = 2500
-test_range = 20
+test_slope = 1000
+test_range = 50
 
 def create_array(n) -> list:
     # array = [n for n in range(1, n+1)]

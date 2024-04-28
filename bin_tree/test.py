@@ -16,7 +16,7 @@ def test():
     # tests = ["find_max", "in_order", "balance_bst"]
     scale = [test_slope * i for i in range(1, test_range + 1)]
     # options = range(1, 5)
-    options = [4] # change type of tests
+    options = [2] # change type of tests
 
 
     for option in options:
@@ -36,13 +36,15 @@ def test():
                         print(f"\tTest size: {test_size}")
                         match tree:
                             case "BST":
+                                array = create_array(test_size)
                                 start = time()
-                                create_bst_tree(create_array(test_size))
+                                create_bst_tree(array)
                                 end = time()
                                 times[tree].append(end - start)
                             case "AVL":
+                                array = create_array(test_size)
                                 start = time()
-                                create_avl_tree(create_array(test_size))
+                                create_avl_tree(array)
                                 end = time()
                                 times[tree].append(end - start)
 
