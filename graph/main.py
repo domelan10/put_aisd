@@ -1,12 +1,12 @@
-from create import create_adjacency_matrix, create_edge_table, create_successor_list
+from create import create_adjacency_matrix, create_edge_table, create_successor_list, create_edge_table_from_adj_matrix, create_successor_list_from_adj_matrix
 from show import BFS, DFS
 from sort import topological_sort_kahn, topological_sort_tarjan
 
 def main() -> None:
     n = int(input("Give size of the matrix: "))
     adj_matrix = create_adjacency_matrix(n)
-    edge_tab = create_edge_table(adj_matrix)
-    successor_list = create_successor_list(adj_matrix)
+    edge_tab = create_edge_table_from_adj_matrix(adj_matrix)
+    successor_list = create_successor_list_from_adj_matrix(adj_matrix)
     
     print("Adjacency Matrix")
     for sub_array in adj_matrix:

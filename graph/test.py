@@ -42,8 +42,7 @@ def test() -> None:
                                 BFS(g,0,3,test_size)
                                 end = time()
                             case "successor_list":
-                                g = create_adjacency_matrix(test_size)
-                                g = create_successor_list(g)
+                                g = create_successor_list(test_size)
                                 start = time()
                                 BFS(g,0,2,test_size)
                                 end = time()
@@ -77,8 +76,7 @@ def test() -> None:
                                 DFS(g,3)
                                 end = time()
                             case "successor_list":
-                                g = create_adjacency_matrix(test_size)
-                                g = create_successor_list(g)
+                                g = create_successor_list(test_size)
                                 start = time()
                                 DFS(g,2)
                                 end = time()
@@ -112,8 +110,7 @@ def test() -> None:
                                 topological_sort_kahn(g,test_size,3)
                                 end = time()
                             case "successor_list":
-                                g = create_adjacency_matrix(test_size)
-                                g = create_successor_list(g)
+                                g = create_successor_list(test_size)
                                 start = time()
                                 topological_sort_kahn(g,test_size,2)
                                 end = time()

@@ -1,7 +1,9 @@
 import random
 
+
 test_slope = 100
 test_range = 10
+
 
 def create_adjacency_matrix(n: int) -> list[list[int]]:
     array = [[0 for _ in range(n)] for _ in range(n)]
@@ -20,7 +22,7 @@ def create_adjacency_matrix(n: int) -> list[list[int]]:
     return array
 
 
-def create_successor_list(array: list[list[int]]) -> list[list[int]]:
+def create_successor_list_from_adj_matrix(array: list[list[int]]) -> list[list[int]]:
     table = list()
     
     for i in range(len(array)):
@@ -33,6 +35,23 @@ def create_successor_list(array: list[list[int]]) -> list[list[int]]:
     return table
 
 
+def create_successor_list(n) -> list[list[int]]:
+    num_edges = n * (n - 1) // 4
+    successors = [[] for _ in range(n)]
+    edge_count = 0
+
+    while edge_count < num_edges:
+        source = random.randint(0, n - 2)
+        target = random.randint(source + 1, n - 1)
+
+        if target not in successors[source]:
+            successors[source].append(target)
+            edge_count += 1
+
+    return successors
+
+
+
 def create_edge_table_from_adj_matrix(array: list[list[int]]) -> list[list[int]]:
     table = list()
     
@@ -43,6 +62,7 @@ def create_edge_table_from_adj_matrix(array: list[list[int]]) -> list[list[int]]
                     table.append([i, j])
 
     return table
+
 
 def create_edge_table(n: int) -> list[list[int]]:
     num_edges = n * (n - 1) // 4
