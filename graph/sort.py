@@ -68,88 +68,113 @@ def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[
     current = 0
     colors = [0 for _ in range(n)] #0 - white, 1 - gray, 2 - black
     colors[0] = 1
+    test = True
     
     match option:
         case 1:
             '''Adjacency Matrix'''
-            while queue:
-                count = 0
+            while test:
+                while queue:
+                    count = 0
+                    
+                    for id, val in enumerate(array[current][::-1]):
+                        if colors[n - id - 1] == 0 and queue[-1] != n - id - 1 and val == 1:
+                            queue.append(n - id - 1)
+                            count += 1
+                    
+                    current = queue[-1]
+                    colors[current] = 1
+                    
+                    if current not in l and count == 0:
+                        l.insert(0, current)
+                        colors[current] = 2
+                        queue = [value for value in queue if value != current]
+                        if queue:
+                            current = queue[-1]
                 
-                for id, val in enumerate(array[current][::-1]):
-                    if colors[n - id - 1] == 0 and queue[-1] != n - id - 1 and val == 1:
-                        queue.append(n - id - 1)
-                        count += 1
-                
-                current = queue[-1]
-                colors[current] = 1
-                
-                if current not in l and count == 0:
-                    l.insert(0, current)
-                    colors[current] = 2
-                    queue = [value for value in queue if value != current]
-                    if queue:
-                        current = queue[-1]
+                test = False
+                for id, color in enumerate(colors):
+                    if color != 2:
+                        queue.append(id)
+                        test = True
+
             return l
         
         case 2:
             '''Succesor List'''
-            while queue:
-                count = 0
+            while test:
+                while queue:
+                    count = 0
+                    
+                    for neigh in array[current][::-1]:
+                        if colors[neigh] == 0 and queue[-1] != neigh:
+                            queue.append(neigh)
+                            count += 1
+                    
+                    current = queue[-1]
+                    colors[current] = 1
+                    
+                    if current not in l and count == 0:
+                        l.insert(0, current)
+                        colors[current] = 2
+                        queue = [value for value in queue if value != current]
+                        if queue:
+                            current = queue[-1]
                 
-                for neigh in array[current][::-1]:
-                    if colors[neigh] == 0 and queue[-1] != neigh:
-                        queue.append(neigh)
-                        count += 1
-                
-                current = queue[-1]
-                colors[current] = 1
-                
-                if current not in l and count == 0:
-                    l.insert(0, current)
-                    colors[current] = 2
-                    queue = [value for value in queue if value != current]
-                    if queue:
-                        current = queue[-1]
+                test = False
+                for id, color in enumerate(colors):
+                    if color != 2:
+                        queue.append(id)
+                        test = True
+
             return l
         
         case 3:
             '''Edge Table'''
-            while queue:
-                count = 0
+            while test:
+                while queue:
+                    count = 0
+                    
+                    for _, [out, to] in enumerate(array):
+                        if colors[to] == 0 and queue[-1] != to and out == current:
+                            queue.append(to)
+                            count += 1
+                    
+                    current = queue[-1]
+                    colors[current] = 1
+                    
+                    if current not in l and count == 0:
+                        l.insert(0, current)
+                        colors[current] = 2
+                        queue = [value for value in queue if value != current]
+                        if queue:
+                            current = queue[-1]
                 
-                for _, [out, to] in enumerate(array):
-                    if colors[to] == 0 and queue[-1] != to and out == current:
-                        queue.append(to)
-                        count += 1
-                
-                current = queue[-1]
-                colors[current] = 1
-                
-                if current not in l and count == 0:
-                    l.insert(0, current)
-                    colors[current] = 2
-                    queue = [value for value in queue if value != current]
-                    if queue:
-                        current = queue[-1]
+                test = False
+                for id, color in enumerate(colors):
+                    if color != 2:
+                        queue.append(id)
+                        test = True
+
             return l
 
 if __name__ == "__main__":
-    from create import create_adjacency_matrix, create_successor_list, create_edge_table
-    # adj = create_adjacency_matrix(10)
-    adj = [
-        [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
-        [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
-        [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
-        [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
-        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ]
+    from create import create_adjacency_matrix, create_successor_list, create_edge_table, create_edge_table_from_adj_matrix, create_successor_list_from_adj_matrix
+    adj = create_adjacency_matrix(10)
+    # adj = [
+    #     [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
+    #     [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
+    #     [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
+    #     [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
+    #     [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    # ]
     # correct for tarjan: 0 1 3 2 5 7 8 4 6 9
-    edge, succ = create_edge_table(adj), create_successor_list(adj)
+    edge, succ = create_edge_table_from_adj_matrix(adj), create_successor_list_from_adj_matrix(adj)
     
     print("Adjacency Matrix")
     for line in adj:
