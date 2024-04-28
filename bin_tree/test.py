@@ -7,7 +7,6 @@ from delete import delete_node, delete_tree
 from time import time
 from balance import balance
 import sys
-import main as gen
 import matplotlib.pyplot as plt
 
 sys.setrecursionlimit(1000000000)
@@ -100,7 +99,7 @@ def test():
                 axes.plot([0]+[element for element in scale], times[tree], label=tree)
 
         case 4:
-            axes.set_title(f"Finding maximum element")
+            axes.set_title(f"Balancing")
 
             tree = "BST"
             print(f"Starting tree: {tree}")
