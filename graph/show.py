@@ -1,40 +1,65 @@
 def DFS(array: list[list[int]], option: int) -> None:
     visited = set()
     queue = [0]
+    test = True
+    n = len(array) - 1
     
     match(option):
         case 1:
-            n = len(array) - 1
-            while queue:
-                current = queue.pop()
-                if current not in visited:
-                    # print(current)
-                    visited.add(current)
-                    for id, val in enumerate(array[current][::-1]):
-                        if n - id not in visited and val == 1:
-                            queue.append(n - id)
+            while test:
+                while queue:
+                    current = queue.pop()
+                    if current not in visited:
+                        print(current)
+                        visited.add(current)
+                        for id, val in enumerate(array[current][::-1]):
+                            if n - id not in visited and val == 1:
+                                queue.append(n - id)
+            
+                test = False
+                for element in range(n + 1):
+                    if element not in visited:
+                        queue.append(element)
+                        test = True
+
             return
         
         case 2:
-            while queue:
-                current = queue.pop()
-                if current not in visited:
-                    # print(current)
-                    visited.add(current)
-                    for neigh in array[current][::-1]:
-                        if neigh not in visited:
-                            queue.append(neigh)
+            while test:
+                while queue:
+                    current = queue.pop()
+                    if current not in visited:
+                        print(current)
+                        visited.add(current)
+                        for neigh in array[current][::-1]:
+                            if neigh not in visited:
+                                queue.append(neigh)
+            
+                test = False
+                for element in range(n + 1):
+                    if element not in visited:
+                        queue.append(element)
+                        test = True
+
             return
         
         case 3:
-            while queue:
-                current = queue.pop()
-                if current not in visited:
-                    # print(current)
-                    visited.add(current)
-                    for _, [out, to] in enumerate(array[::-1]):
-                        if to not in visited and out == current and to not in visited:
-                            queue.append(to)
+            while test:
+                while queue:
+                    current = queue.pop()
+                    if current not in visited:
+                        print(current)
+                        visited.add(current)
+                        for _, [out, to] in enumerate(array[::-1]):
+                            if to not in visited and out == current and to not in visited:
+                                queue.append(to)
+            
+                test = False
+                for element in range(n + 1):
+                    if element not in visited:
+                        queue.append(element)
+                        test = True
+
             return
 
 
@@ -46,7 +71,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 1:
             while queue:
                 v = queue.pop(0)
-                # print(v)
+                print(v)
 
                 for neigh in range(h):
                     if graph[v][neigh] == 1 and neigh not in visited:
@@ -64,7 +89,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 2:
             while queue:
                 v = queue.pop(0)
-                # print(v)
+                print(v)
 
                 for neigh in graph[v]:
                     if neigh not in visited:
@@ -82,7 +107,7 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
         case 3:
             while queue:
                 v = queue.pop(0)
-                # print(v)
+                print(v)
 
                 for sub_array in graph:
                     if len(sub_array) > 0:
@@ -101,24 +126,24 @@ def BFS(graph: list[list[int]], s: int, option: int, h: int) -> None:
 
 
 def main():
-    from create import create_adjacency_matrix, create_edge_table, create_successor_list
-    n = 10
-    # adj = create_adjacency_matrix(n)
-    adj = [
-        [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
-        [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
-        [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
-        [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
-        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ]
+    from create import create_adjacency_matrix, create_successor_list, create_edge_table, create_edge_table_from_adj_matrix, create_successor_list_from_adj_matrix
+    n = int(input("Wielkość tablicy: "))
+    adj = create_adjacency_matrix(n)
+    # adj = [
+    #     [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],
+    #     [0, 0, 1, 1, 0, 0, 1, 1, 1, 1],
+    #     [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
+    #     [0, 0, 0, 0, 1, 1, 0, 1, 0, 1],
+    #     [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    # ]
     # correct answer for DFS: 0 1 2 4 6 9 5 7 8 3
     # correct answer for BFS: 0 1 2 4 3 6 7 8 9 5
-    edge, succ = create_edge_table(adj), create_successor_list(adj)
+    edge, succ = create_edge_table_from_adj_matrix(adj), create_successor_list_from_adj_matrix(adj)
     
     print("Adjacency Matrix")
     for line in adj:

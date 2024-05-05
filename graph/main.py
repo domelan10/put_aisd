@@ -24,11 +24,11 @@ def main() -> None:
         for i, sub_array in enumerate(edge_tab):
             print("e"+str(i),sub_array)
 
-        option_sort = int(input("Select sort option:\n1 - Kahn\n2 - Tarjan\n3 - Exit program\n"))
-        option_representation = int(input("Select representation option:\n1 - Adjancency Matrix\n2 - Successor List\n3 - Edge Table\n"))
+        option_sort = int(input("\nSelect sort option:\n1 - Kahn\n2 - Tarjan\n3 - Exit program\n"))
 
         match option_sort:
             case 1:
+                option_representation = int(input("Select representation option:\n1 - Adjancency Matrix\n2 - Successor List\n3 - Edge Table\n"))
                 match option_representation:
                     case 1:
                         l = topological_sort_kahn(adj_matrix,n,option_representation)
@@ -40,6 +40,7 @@ def main() -> None:
                         l = topological_sort_kahn(edge_tab,n,option_representation)
 
             case 2:
+                option_representation = int(input("Select representation option:\n1 - Adjancency Matrix\n2 - Successor List\n3 - Edge Table\n"))
                 match option_representation:
                     case 1:
                         l = topological_sort_tarjan(adj_matrix,n,option_representation)

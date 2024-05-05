@@ -1,65 +1,45 @@
-def topological_sort_kahn(array: list[list[int]], n: int, option: int = 1)-> list[int]:
-    l = list()
+def topological_sort_kahn(array: list[list[int]], n: int, option: int = 1) -> list[int]:
+    in_deg = [0] * n
+    l = []
     visited = set()
 
     match option:
         case 1:
-            '''Adjacency Matrix'''
-
-            f = True
-            while f:
-                f = False
-                for i in range(n):
-                    for sub_array in array:
-                        if sub_array[i] == 1 or i in visited:
-                            break
-
-                        f = True
-                        visited.add(i)
-                        l.append(i)
-                        for j in range(n):
-                            for sub_array in array:
-                                sub_array[j] = 0
-
-            return l
+            for i in range(n):
+                for j in range(n):
+                    if array[i][j] == 1:
+                        in_deg[j] += 1
 
         case 2:
-            '''Succesor List'''
-
-            f = True
-            while f:
-                f = False
-                for i in range(n):
-                    for sub_array in array:
-                        if i in sub_array or i in visited:
-                            break
-                        f = True
-
-                        visited.add(i)
-                        l.append(i)
-                        array[i] = []
-            
-            return l
+            for i in range(n):
+                for node in array[i]:
+                    in_deg[node] += 1
 
         case 3:
-            '''Edge Table'''
+            for edge in array:
+                in_deg[edge[1]] += 1
 
-            f = True
-            while f:
-                f = False
-                for i in range(n):
-                    for sub_array in array:
-                        if sub_array[1] == i or i in visited:
-                            break
-                        f = True
+    while len(visited) < n:
+        for i in range(n):
+            if i not in visited and in_deg[i] == 0:
+                visited.add(i)
+                l.append(i)
+                match option:
+                    case 1:
+                        for j in range(n):
+                            if array[i][j] == 1:
+                                in_deg[j] -= 1
 
-                        visited.add(i)
-                        l.append(i)
-                        for j in array:
-                            if j[0] == i:
-                                j[1] = 0
+                    case 2:
+                        for node in array[i]:
+                            in_deg[node] -= 1
 
-            return l
+                    case 3:
+                        for edge in array:
+                            if edge[0] == i:
+                                in_deg[edge[1]] -= 1
+
+    return l
 
 
 def topological_sort_tarjan(array: list[list[int]], n: int, option: int)-> list[int]:
@@ -193,15 +173,15 @@ if __name__ == "__main__":
     
     print("\n")
     print("Adjacency Matrix")
-    result = topological_sort_tarjan(adj, len(adj), 1)
+    result = topological_sort_kahn(adj, len(adj), 1)
     print(result)
 
     print("\n")
     print("Successor List")
-    print(topological_sort_tarjan(succ, len(adj), 2))
+    print(topological_sort_kahn(succ, len(adj), 2))
 
 
     print("\n")
     print("Edge Table")
-    print(topological_sort_tarjan(edge, len(adj), 3))
+    print(topological_sort_kahn(edge, len(adj), 3))
 
