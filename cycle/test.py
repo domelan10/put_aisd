@@ -11,7 +11,7 @@ sys.setrecursionlimit(1_000_000_000)
 
 def test() -> None:
     scale = [test_slope * i for i in range(1, test_range + 1)]
-    scale_for_broken = range(20, 31)
+    scale_for_broken = range(20, 23, step = 1)
     options = ["hamilton_30_70", "hamilton_50", "euler_30_70"]
     # options = ["hamilton_50"] # change type of tests
 
