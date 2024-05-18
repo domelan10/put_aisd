@@ -124,7 +124,7 @@ def generate_70(n: int) -> list[list[int]]:
     return graph
 
 if __name__ == '__main__':
-    graph = generate_non_hamilton(int(input("Size: ")))
+    graph = generate_50(int(input("Size: ")))
     
     for id, sub_array in enumerate(graph):
         print(id, sub_array, sep=". ")
