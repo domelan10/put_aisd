@@ -5,15 +5,15 @@ from time import time
 import sys
 import matplotlib.pyplot as plt
 
-test_slope = 500
+test_slope = 100
 test_range = 10
 sys.setrecursionlimit(1_000_000_000)
 
 def test() -> None:
     scale = [test_slope * i for i in range(1, test_range + 1)]
-    scale_for_broken = range(20, 23, step = 1)
-    options = ["hamilton_30_70", "hamilton_50", "euler_30_70"]
-    # options = ["hamilton_50"] # change type of tests
+    scale_for_broken = range(20, 23)
+    # options = ["hamilton_30_70", "hamilton_50", "euler_30_70"]
+    options = ["hamilton_50"] # change type of tests
 
     for option in options:
         match option:
@@ -67,7 +67,7 @@ def test() -> None:
                     end = time()
                     times.append(end - start)
                     
-                axes.plot([0]+[element for element in scale_for_broken], times, label="filled 50% (n ∈ <20-30>)")
+                axes.plot([element for element in scale_for_broken], times, label="filled 50% (n ∈ <20-22>)")
                 axes.legend()
                 
             case "euler_30_70":

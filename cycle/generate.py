@@ -9,7 +9,8 @@ def generate_30(n: int) -> list[list[int]]:
         graph[i][i + 1] = 1
         graph[i + 1][i] = 1
         count += 1
-
+    graph[0][n - 1] = 1
+    graph[n - 1][0] = 1
     while count < desired:
         while True:
             one, two, three = random.randint(0, n - 1), random.randint(0, n - 1), random.randint(0, n - 1)
